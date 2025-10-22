@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getwidget/getwidget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -38,7 +39,6 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Logo Jonjoni (gunakan asset jika ada)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 12),
                   child: Text(
@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                       fontSize: 36,
                       fontWeight: FontWeight.bold,
                       color: primaryOrange,
-                      fontFamily: 'Pacifico', // Ganti dengan font sesuai jika ada
+                      fontFamily: 'Pacifico',
                       letterSpacing: 1.2,
                     ),
                   ),
@@ -113,42 +113,27 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const SizedBox(height: 18),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: primaryOrange,
-                      foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(vertical: 14),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      elevation: 1,
-                    ),
-                    onPressed: () {
-                      final email = _emailController.text.trim();
-                      final password = _passwordController.text;
-                      if (email.isNotEmpty && password.isNotEmpty) {
-                        Navigator.pushReplacementNamed(
-                          context,
-                          '/dashboard',
-                          arguments: email,
-                        );
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Email dan password wajib diisi!')),
-                        );
-                      }
-                    },
-                    child: const Text(
-                      "Login",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                        letterSpacing: 1,
-                      ),
-                    ),
-                  ),
+                GFButton(
+                  onPressed: () {
+                    final email = _emailController.text.trim();
+                    final password = _passwordController.text;
+                    if (email.isNotEmpty && password.isNotEmpty) {
+                      Navigator.pushReplacementNamed(
+                        context,
+                        '/dashboard',
+                        arguments: email,
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Email dan password wajib diisi!')),
+                      );
+                    }
+                  },
+                  text: "Login",
+                  color: primaryOrange,
+                  blockButton: true,
+                  shape: GFButtonShape.pills,
+                  size: GFSize.LARGE,
                 ),
                 const SizedBox(height: 10),
                 InkWell(
