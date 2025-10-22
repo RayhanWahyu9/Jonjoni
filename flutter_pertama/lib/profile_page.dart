@@ -20,9 +20,9 @@ class ProfilePage extends StatelessWidget {
               children: [
                 const Center(child: CircleAvatar(radius: 40, backgroundImage: AssetImage('assets/logo.png'))),
                 const SizedBox(height: 12),
-                const Center(child: Text('Nama Pengguna', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+                const Center(child: Text('Selamat Datang', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
                 const SizedBox(height: 4),
-                const Center(child: Text('email@contoh.com', style: TextStyle(color: Colors.black54))),
+                const Center(child: Text('Bowo', style: TextStyle(color: Colors.black54))),
                 const SizedBox(height: 18),
                 Card(
                   child: ListTile(

@@ -136,16 +136,6 @@ class _LoginPageState extends State<LoginPage> {
                   size: GFSize.LARGE,
                 ),
                 const SizedBox(height: 10),
-                InkWell(
-                  onTap: () {},
-                  child: const Text(
-                    "Forgot Password?",
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      color: Colors.blue,
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
